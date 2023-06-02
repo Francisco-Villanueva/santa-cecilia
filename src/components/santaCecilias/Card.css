@@ -1,0 +1,51 @@
+.card-container {
+  display: grid;
+  grid-template-columns: 2fr 3fr 1fr;
+  border-radius: 1em;
+  border: 1px solid #cecece;
+  padding: 0.2em 1em;
+  transition: all 0.3s;
+}
+
+.card-container:hover {
+  background-color: #999292;
+}
+.card-image {
+  height: 50px; /* Ajusta la altura según tus necesidades */
+
+  object-fit: contain; /* Para ajustar la imagen al contenedor sin deformarla */
+  border-radius: 3em;
+}
+.card-container > div {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+.card_winner {
+  font-size: 1.3rem;
+}
+.card_date h4,
+.card_date h2 {
+  margin: 0;
+  text-transform: capitalize;
+}
+
+.song-list-hidden {
+  display: none;
+  margin-top: 10px;
+}
+.song-list {
+  display: grid;
+  /* background-color: #d77d7d; */
+  padding: 1em;
+  gap: 0em;
+  border: 1px solid #999292;
+  border-radius: 0em 0em 1em 1em;
+  margin-top: -1rem;
+  margin-bottom: 1em;
+  border-top: unset;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+.song-list li {
+  list-style: none;
+}
