@@ -10,6 +10,7 @@ import Songs from "./components/songs/Songs";
 import debounce from "just-debounce-it";
 import { useSongs } from "./hooks/useSongs";
 import { useSearch } from "./hooks/useSearch";
+import Ranking from "./components/ranking/Ranking";
 function App() {
   const { getRamaData } = useRama();
   const { santas, getAllSantas } = useSantas();
@@ -39,12 +40,17 @@ function App() {
     setSearch(newQuery);
     debouncedGetCanciones(newQuery);
   };
-  // console.log(santas);
+  console.log(santas.santas);
+  const santasSorted = santas.santas.sort((a, b) => b.year - a.year);
+  console.log({ santasSorted });
   return (
     <>
       <div className="App">
         <h1>Santa cecilia</h1>
 
+        <section className="ranking-container">
+          <Ranking />
+        </section>
         <div className="home_body">
           <section className="santa_cecilias home_body_section">
             <div className=" home_body_section__head">
@@ -55,7 +61,7 @@ function App() {
               </div>
             </div>
             <div className="home_body_section__list">
-              {santas.santas.map((m) => (
+              {santasSorted.map((m) => (
                 <SantaCecilia
                   key={m.id_sc}
                   id_santa={m.id_sc}

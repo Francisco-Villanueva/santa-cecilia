@@ -29,6 +29,41 @@
       "place": "recovecos"
     },
     {
+      "id_sc": "sc_2011",
+      "year": 2011,
+      "canciones": [],
+      "winner": "id_unidad",
+      "place": "curamalal"
+    },
+    {
+      "id_sc": "sc_2012",
+      "year": 2012,
+      "canciones": [],
+      "winner": "id_rovers",
+      "place": "la paz IV"
+    },
+    {
+      "id_sc": "sc_2013",
+      "year": 2013,
+      "canciones": [],
+      "winner": "id_caminantes",
+      "place": "las torcazas"
+    },
+    {
+      "id_sc": "sc_2014",
+      "year": 2014,
+      "canciones": [],
+      "winner": "id_alitas",
+      "place": "San Mario"
+    },
+    {
+      "id_sc": "sc_2015",
+      "year": 2015,
+      "canciones": [],
+      "winner": "id_manada",
+      "place": "la paz V"
+    },
+    {
       "id_sc": "sc_2017",
       "year": 2017,
       "canciones": [
@@ -270,7 +305,7 @@
         }
       ],
       "winner": "id_clan",
-      "place": "la paz III"
+      "place": "San Mario"
     },
     {
       "id_sc": "sc_2018",
