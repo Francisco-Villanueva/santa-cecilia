@@ -13,10 +13,21 @@ import { canciones } from "../mocks/canciones.json";
 // }
 
 export const searchSongs = ({ search }) => {
-  if (search === "") return null;
+  if (search === "") return canciones;
 
-  const filteredSongs = canciones.filter((e) => e.title === search);
+  const condition = (container, toSearch) => {
+    container = container.toLowerCase();
+    toSearch = toSearch.toLowerCase();
 
+    if (toSearch.length < 4) {
+      return container.slice(0, toSearch.length) === toSearch;
+    }
+    return container.includes(toSearch);
+  };
+  const filteredSongs = canciones.filter((e) => condition(e.title, search));
+  // console.log("search: ", search.toLowerCase());
+  // console.log(" SONGS: ", canciones);
+  // console.log("FILTERED SONGS: ", filteredSongs);
   return filteredSongs?.map((m) => ({
     id: m.idAuthor,
     title: m.title,

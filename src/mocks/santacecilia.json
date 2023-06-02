@@ -271,6 +271,34 @@
       ],
       "winner": "id_clan",
       "place": "la paz III"
+    },
+    {
+      "id_sc": "sc_2018",
+      "year": 2018,
+      "canciones": [],
+      "winner": "id_caminantes",
+      "place": "las torcazas"
+    },
+    {
+      "id_sc": "sc_2019",
+      "year": 2019,
+      "canciones": [],
+      "winner": "id_solar",
+      "place": "Keller"
+    },
+    {
+      "id_sc": "sc_2020",
+      "year": 2020,
+      "canciones": [],
+      "winner": "id_unidad",
+      "place": "San Mario"
+    },
+    {
+      "id_sc": "sc_2023",
+      "year": 2023,
+      "canciones": [],
+      "winner": "id_rovers",
+      "place": "las torcazas"
     }
   ]
 }

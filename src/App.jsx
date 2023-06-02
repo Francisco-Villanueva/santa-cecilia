@@ -22,7 +22,7 @@ function App() {
   }, []);
 
   const handleCancionesSubmit = (e) => {
-    e.prevenDefault();
+    e.preventDefault();
 
     getSongs({ search });
   };
@@ -46,29 +46,31 @@ function App() {
         <h1>Santa cecilia</h1>
 
         <div className="home_body">
-          <section className="santa_cecilias">
-            <div className="santa_cecilias-head">
-              <h1>Santa Cecilias</h1>
+          <section className="santa_cecilias home_body_section">
+            <div className=" home_body_section__head">
+              <h1>Santas Cecilias</h1>
               <div>
                 <input type="text" placeholder="Año, Campo, Rama ..." />
                 <button>🔍</button>
               </div>
             </div>
-            {santas.santas.map((m) => (
-              <SantaCecilia
-                key={m.id_sc}
-                id_santa={m.id_sc}
-                year={m.year}
-                place={m.place}
-                winner={m.winner}
-                songs={m.canciones}
-                getRamaData={getRamaData}
-              />
-            ))}
+            <div className="home_body_section__list">
+              {santas.santas.map((m) => (
+                <SantaCecilia
+                  key={m.id_sc}
+                  id_santa={m.id_sc}
+                  year={m.year}
+                  place={m.place}
+                  winner={m.winner}
+                  songs={m.canciones}
+                  getRamaData={getRamaData}
+                />
+              ))}
+            </div>
           </section>
 
-          <section className="canciones">
-            <div className="canciones_head">
+          <section className=" home_body_section">
+            <div className="home_body_section__head">
               <h1>Canciones</h1>
               <form onSubmit={handleCancionesSubmit}>
                 <input
@@ -82,7 +84,7 @@ function App() {
                 <button type="submit">🔍</button>
               </form>
             </div>
-            <div className="canciones_list">
+            <div className="home_body_section__list">
               {songs?.map((m) => (
                 <Songs
                   cancionero_home={true}
