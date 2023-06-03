@@ -40,16 +40,16 @@ function App() {
     setSearch(newQuery);
     debouncedGetCanciones(newQuery);
   };
-  console.log(santas.santas);
+  // console.log(santas.santas);
   const santasSorted = santas.santas.sort((a, b) => b.year - a.year);
-  console.log({ santasSorted });
+  // console.log({ santasSorted });
   return (
     <>
       <div className="App">
         <h1>Santa cecilia</h1>
 
         <section className="ranking-container">
-          <Ranking />
+          <Ranking santas={santacecilia}/>
         </section>
         <div className="home_body">
           <section className="santa_cecilias home_body_section">
