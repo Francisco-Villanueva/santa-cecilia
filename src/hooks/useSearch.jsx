@@ -12,7 +12,7 @@ export function useSearch() {
       return;
     }
     if (search === "") {
-      setError("No se puede buscar una pelicula vacia");
+      setError("No se puede buscar una cancion vacia");
       return;
     }
 

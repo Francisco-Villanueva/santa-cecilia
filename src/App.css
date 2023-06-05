@@ -7,42 +7,27 @@
 .home_body {
   display: grid;
   width: 100%;
+  gap: 20px;
   grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
 }
 .home_body_section {
-  max-height: 500px;
-  border: 1px solid #ffffff1c;
+  max-height: 600px;
+  /* border: 1px solid #ffffff1c; */
   padding: 0.2em 1em;
 }
 .home_body_section__head {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 0.5em 0;
 }
 .home_body_section__list {
   display: flex;
   flex-direction: column;
-  gap: 3px;
-  height: 80%;
-  /* padding: 0.2em 1em; */
-  overflow: auto;
+  gap: 5px;
+  overflow-y: auto;
+  max-height: 80%;
 }
 
-.santa-cecilias_list {
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-  height: 80%;
-  /* padding: 0.2em 1em; */
-  overflow: auto;
-}
-.santa_cecilias-head {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0.5em 0;
-}
 .home_body_section__head div {
   display: flex;
   align-items: center;
@@ -80,4 +65,22 @@
   text-align: center;
   position: absolute;
   left: 0;
+}
+.section_ranking-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9); /* color de fondo semi-transparente */
+  backdrop-filter: blur(5px); /* efecto de desenfoque */
+  transition: all 0.15s ease-in-out;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+}
+.ranking-btn_home {
+  position: absolute;
+  top: 30px;
+  right: 30px;
 }

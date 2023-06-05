@@ -21,7 +21,10 @@ export function Card({ year, name, img, place, songs, id_santa }) {
           <p>{name}</p>
         </div>
         <div className="card_songs">
-          <button onClick={() => toggleSongList()}>
+          <button
+            onClick={() => toggleSongList()}
+            disabled={songs.length === 0}
+          >
             Canciones: <b> {songs.length}</b>{" "}
           </button>
         </div>

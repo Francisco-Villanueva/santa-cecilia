@@ -5,16 +5,21 @@ import { santacecilia } from "./mocks/santacecilia.json";
 import { useRama } from "./hooks/useRama";
 import { useSantas } from "./hooks/useSantas";
 import { SantaCecilia } from "./components/santaCecilias/SantaCecilia";
-import { useCallback, useEffect } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Songs from "./components/songs/Songs";
 import debounce from "just-debounce-it";
 import { useSongs } from "./hooks/useSongs";
 import { useSearch } from "./hooks/useSearch";
 import Ranking from "./components/ranking/Ranking";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFilter, faRankingStar } from "@fortawesome/free-solid-svg-icons";
+import Carousele from "./components/carousel/Carousel";
+
 function App() {
   const { getRamaData } = useRama();
-  const { santas, getAllSantas } = useSantas();
   const { search, setSearch } = useSearch();
+  const [sort, setSort] = useState("Z-A");
+  const { santas, getSantas, getAllSantas } = useSantas({ search, sort });
   const { songs, getSongs, getAlSongs } = useSongs({ search });
 
   useEffect(() => {
@@ -35,33 +40,80 @@ function App() {
   );
   const handleCancionesSearch = (e) => {
     const newQuery = e.target.value;
-    console.log(newQuery);
+    // console.log(newQuery);
     if (newQuery.startsWith(" ")) return;
     setSearch(newQuery);
     debouncedGetCanciones(newQuery);
   };
-  // console.log(santas.santas);
-  const santasSorted = santas.santas.sort((a, b) => b.year - a.year);
+
+  const debouncedGetSantas = useCallback(
+    debounce((search) => {
+      getSantas({ search });
+    }, 300),
+    []
+  );
+  const handleSantasSearch = (e) => {
+    const newQuery = e.target.value;
+    debouncedGetSantas(newQuery);
+  };
+  const handleSantasSort = (e) => {
+    const newSort = e.target.value;
+    setSort(newSort);
+  };
+
   // console.log({ santasSorted });
+  const [rankingShow, setRankingShow] = useState(false);
+  const handleShowRanking = () => {
+    setRankingShow(!rankingShow);
+  };
   return (
     <>
       <div className="App">
         <h1>Santa cecilia</h1>
-
-        <section className="section_ranking-container">
-          <Ranking santas={santacecilia} />
-        </section>
+        <Carousele />
+        <button className="ranking-btn_home" onClick={handleShowRanking}>
+          <FontAwesomeIcon icon={faRankingStar} />
+        </button>
+        {rankingShow ? (
+          <section className="section_ranking-container">
+            {/* <button onClick={handleShowRanking}></button> */}
+            <Ranking santas={santacecilia} closeRanking={handleShowRanking} />
+          </section>
+        ) : (
+          ""
+        )}
         <div className="home_body">
+          {/* SANTACECILIAS */}
           <section className="home_body_section">
             <div className=" home_body_section__head">
               <h1>Santas Cecilias</h1>
               <div>
-                <input type="text" placeholder="Año, Campo, Rama ..." />
+                <input
+                  type="text"
+                  placeholder="Año, Campo, Rama ..."
+                  autoComplete="off"
+                  name="query-santas"
+                  onChange={handleSantasSearch}
+                />
                 <button>🔍</button>
               </div>
+              {/* <div className="filterSantas-container">
+                <select
+                  name="filterSantas"
+                  id=""
+                  className=""
+                  onChange={handleSantasSort}
+                >
+                  <option value="Z-A">Z-A</option>
+                  <option value="A-Z">A-Z</option>
+                </select>
+              </div> */}
             </div>
+            <span style={{ fontStyle: "italic", margin: 0 }}>
+              Resultados : {santas.length}
+            </span>
             <div className="home_body_section__list">
-              {santasSorted.map((m) => (
+              {santas.map((m) => (
                 <SantaCecilia
                   key={m.id_sc}
                   id_santa={m.id_sc}
@@ -75,7 +127,8 @@ function App() {
             </div>
           </section>
 
-          <section className=" home_body_section">
+          {/* CANCIONES */}
+          <section className="home_body_section">
             <div className="home_body_section__head">
               <h1>Canciones</h1>
               <form onSubmit={handleCancionesSubmit}>
@@ -91,6 +144,9 @@ function App() {
                 <button type="submit">🔍</button>
               </form>
             </div>
+            <span style={{ fontStyle: "italic", margin: 0 }}>
+              Resultados : {songs.length}
+            </span>
             <div className="home_body_section__list">
               {songs?.map((m) => (
                 <Songs

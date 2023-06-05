@@ -35,5 +35,6 @@ export const searchSongs = ({ search }) => {
     year: m.year,
     idSantaCecilia: m.idSantaCecilia,
     id_cancion: m.id_cancion,
+    lyrics: m.lyrics,
   }));
 };

@@ -334,6 +334,55 @@
       "canciones": [],
       "winner": "id_rovers",
       "place": "las torcazas"
+    },
+    {
+      "id_sc": "sc_2009",
+      "year": 2009,
+      "canciones": [],
+      "winner": "id_manada",
+      "place": "María A"
+    },
+    {
+      "id_sc": "sc_2008",
+      "year": 2008,
+      "canciones": [],
+      "winner": "id_rovers",
+      "place": "La paz II"
+    },
+    {
+      "id_sc": "sc_2007",
+      "year": 2007,
+      "canciones": [],
+      "winner": "id_rovers",
+      "place": "La paz I"
+    },
+    {
+      "id_sc": "sc_2006",
+      "year": 2006,
+      "canciones": [],
+      "winner": "id_clan",
+      "place": "El remanso"
+    },
+    {
+      "id_sc": "sc_2005",
+      "year": 2005,
+      "canciones": [],
+      "winner": "id_solar",
+      "place": "San Carlos III"
+    },
+    {
+      "id_sc": "sc_2004",
+      "year": 2004,
+      "canciones": [],
+      "winner": "id_unidad",
+      "place": "San Carlos II"
+    },
+    {
+      "id_sc": "sc_2003",
+      "year": 2003,
+      "canciones": [],
+      "winner": "id_unidad",
+      "place": "San Carlos I"
     }
   ]
 }
