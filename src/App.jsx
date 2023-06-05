@@ -48,11 +48,11 @@ function App() {
       <div className="App">
         <h1>Santa cecilia</h1>
 
-        <section className="ranking-container">
-          <Ranking santas={santacecilia}/>
+        <section className="section_ranking-container">
+          <Ranking santas={santacecilia} />
         </section>
         <div className="home_body">
-          <section className="santa_cecilias home_body_section">
+          <section className="home_body_section">
             <div className=" home_body_section__head">
               <h1>Santas Cecilias</h1>
               <div>
@@ -84,6 +84,7 @@ function App() {
                   name="query"
                   value={search}
                   placeholder="Buscar cancion ... "
+                  autoComplete="off"
                   onChange={handleCancionesSearch}
                 />
 

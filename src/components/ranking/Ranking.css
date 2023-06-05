@@ -1,0 +1,49 @@
+.ranking-container {
+  /* border: 1px solid #fff; */
+  margin: auto;
+  text-align: center;
+  align-items: center;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  padding: 2em 0;
+}
+.rank-container {
+  /* width: 90%; */
+  /* background-color: rgba(0, 253, 253, 0.267); */
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  width: 60%;
+}
+.ranking-container h1 {
+  margin: 0;
+  font-weight: 500;
+}
+.rank {
+  display: grid;
+  grid-template-columns: 1fr 1fr 9fr;
+  align-items: center;
+}
+.rank img {
+  height: 50px; /* Ajusta la altura según tus necesidades */
+  width: 50px;
+  object-fit: contain; /* Para ajustar la imagen al contenedor sin deformarla */
+  border-radius: 3em;
+}
+.rank b {
+  margin: 0;
+  padding: 0;
+}
+.rank h3 {
+  margin: 0;
+}
+.rank div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  outline: 1px solid #cacaca;
+  border-radius: 0.5em;
+  padding: 0.5em 1em;
+}
