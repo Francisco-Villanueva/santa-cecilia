@@ -7,19 +7,38 @@ import {
   faExpandArrowsAlt,
 } from "@fortawesome/free-solid-svg-icons";
 
-export default function SongPlaying({ song, isPlaying }) {
+function SongPlayingExpanded({ song, author, handleExpandSong }) {
+  console.log({ author });
+  return (
+    <div className="songPlaying_expanded scale-in-bl">
+      <button className="expand_songPlaying" onClick={handleExpandSong}>
+        <FontAwesomeIcon icon={faExpand} />
+      </button>
+      <img src={author[0].img} alt="" />
+      <h3>{song}</h3>
+      <b>{author[0].rama_name} </b>
+    </div>
+  );
+}
+export default function SongPlaying({ song, isPlaying, ramas, rama_name }) {
   const [expand, setExpand] = useState(false);
-
   const handleExpandSong = () => {
     setExpand(!expand);
   };
-  return (
+
+  const author = ramas.filter((e) => e.rama_name === rama_name);
+
+  return expand ? (
+    <SongPlayingExpanded
+      song={song}
+      author={author}
+      handleExpandSong={handleExpandSong}
+    />
+  ) : (
     <div
       className={
         isPlaying
-          ? expand
-            ? "songPlaying_expanded scale-in-bl"
-            : "songPlaying_container entrance"
+          ? "songPlaying_container entrance"
           : "songPlaying_container exit"
       }
     >

@@ -37,7 +37,7 @@
     },
     {
       "idRama": "id_caminantes",
-      "rama_name": "Raiders / Caminantes",
+      "rama_name": "Caminantes",
       "img": "https://zona1centro.org.ar/wp-content/uploads/2013/07/Insignia-Rama-Caminantes.jpg",
       "canciones": [],
       "sc_ganados": []
@@ -51,7 +51,7 @@
     },
     {
       "idRama": "id_rovers",
-      "rama_name": "Rover",
+      "rama_name": "Rovers",
       "img": "https://i0.wp.com/scouts.org.ar/wp-content/uploads/2021/08/Logo_Rovers-1-300x300.png?resize=188%2C188&ssl=1",
       "canciones": [],
       "sc_ganados": []

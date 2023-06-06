@@ -10,6 +10,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import SongPlayer from "../SongPlayer/SongPlayer";
 import SongPlaying from "../songPlaying/SongPlaying";
+import { ramas } from "../../mocks/ramas.json";
 const letra =
   "Las tazas sobre el mantel \n\n" +
   "\nLa lluvia derramada \n\n" +
@@ -53,7 +54,14 @@ function SongsInHome({ name, rama_name, year, lyrics, pos }) {
 
   return (
     <div className="songs-container-home-main">
-      {isPlaying && <SongPlaying song={name} isPlaying={isPlaying} />}
+      {isPlaying && (
+        <SongPlaying
+          song={name}
+          isPlaying={isPlaying}
+          rama_name={rama_name}
+          ramas={ramas}
+        />
+      )}
       <div
         className={
           showLyrics
