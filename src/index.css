@@ -131,12 +131,10 @@ body {
 }
 
 button {
-  transition: background-color 0.1s linear, border-color 0.1s linear,
-    color 0.1s linear, box-shadow 0.1s linear, transform 0.1s ease;
+  transition: background-color 0.1s linear, color 0.1s linear,
+    transform 0.1s ease;
   transition: background-color var(--animation-duration) linear,
-    border-color var(--animation-duration) linear,
     color var(--animation-duration) linear,
-    box-shadow var(--animation-duration) linear,
     transform var(--animation-duration) ease;
 }
 
@@ -689,18 +687,6 @@ select:focus {
 
 @media (prefers-color-scheme: dark) {
   select:focus {
-    box-shadow: 0 0 0 2px #0096bfab;
-    box-shadow: 0 0 0 2px var(--focus);
-  }
-}
-
-button:focus {
-  box-shadow: 0 0 0 2px #0096bfab;
-  box-shadow: 0 0 0 2px var(--focus);
-}
-
-@media (prefers-color-scheme: dark) {
-  button:focus {
     box-shadow: 0 0 0 2px #0096bfab;
     box-shadow: 0 0 0 2px var(--focus);
   }

@@ -14,6 +14,7 @@ import Ranking from "./components/ranking/Ranking";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFilter, faRankingStar } from "@fortawesome/free-solid-svg-icons";
 import Carousele from "./components/carousel/Carousel";
+import SongPlaying from "./components/songPlaying/SongPlaying";
 
 function App() {
   const { getRamaData } = useRama();
@@ -69,6 +70,7 @@ function App() {
   return (
     <>
       <div className="App">
+        {/* <SongPlaying /> */}
         <h1>Santa cecilia</h1>
         <Carousele />
         <button className="ranking-btn_home" onClick={handleShowRanking}>

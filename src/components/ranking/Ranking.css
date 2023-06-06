@@ -1,21 +1,22 @@
 .ranking-container {
-  /* border: 1px solid #ffffff60; */
-  margin: 2em auto;
+  border: 1px solid #ffffff60;
+  background-color: #000;
+  border-radius: 10px;
   text-align: center;
   align-items: center;
-  width: 50%;
+  width: 40%;
   display: flex;
   flex-direction: column;
   gap: 1em;
-  padding: 2em 0;
+  padding: 2em;
   position: relative;
 }
 .btn-closeRanking {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 5px;
+  left: 5px;
   background-color: none;
-  border-radius: 10em;
+  border-radius: 5px;
   width: 1.8em;
   height: 1.8em;
   padding: 0em;
@@ -26,8 +27,8 @@
   transition: all 0.3s;
 }
 .btn-closeRanking:hover {
-  transform: scale(1.2);
-  background-color: #fff;
+  transform: scale(1.1);
+  background-color: #ffd0d0;
 }
 .btn-closeRanking:focus {
   outline: none !important;
@@ -39,7 +40,7 @@
   display: flex;
   flex-direction: column;
   gap: 1em;
-  width: 60%;
+  width: 80%;
 }
 .ranking-container h1 {
   margin: 0;
@@ -47,7 +48,7 @@
 }
 .rank {
   display: grid;
-  grid-template-columns: 1fr 1fr 9fr;
+  grid-template-columns: 1fr 1fr 8fr;
   align-items: center;
   gap: 1em;
 }
@@ -60,9 +61,11 @@
 .rank b {
   margin: 0;
   padding: 0;
+  font-size: 1.5em;
 }
 .rank h3 {
   margin: 0;
+  color: #000;
 }
 .rank div {
   display: flex;
@@ -71,4 +74,6 @@
   outline: 1px solid #cacaca;
   border-radius: 0.5em;
   padding: 0.5em 1em;
+  background-color: #cacaca;
+  color: #000;
 }

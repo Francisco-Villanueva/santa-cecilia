@@ -2,8 +2,14 @@ import React, { useEffect, useState } from "react";
 import { useRama } from "../../hooks/useRama";
 import "./Songs.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLeaf, faPause, faPlay } from "@fortawesome/free-solid-svg-icons";
+import {
+  faLeaf,
+  faPause,
+  faPlay,
+  faReply,
+} from "@fortawesome/free-solid-svg-icons";
 import SongPlayer from "../SongPlayer/SongPlayer";
+import SongPlaying from "../songPlaying/SongPlaying";
 const letra =
   "Las tazas sobre el mantel \n\n" +
   "\nLa lluvia derramada \n\n" +
@@ -47,10 +53,11 @@ function SongsInHome({ name, rama_name, year, lyrics, pos }) {
 
   return (
     <div className="songs-container-home-main">
+      {isPlaying && <SongPlaying song={name} isPlaying={isPlaying} />}
       <div
         className={
           showLyrics
-            ? "songs-container-home selected-song"
+            ? "songs-container-home selected-song "
             : "songs-container-home"
         }
       >
@@ -58,7 +65,7 @@ function SongsInHome({ name, rama_name, year, lyrics, pos }) {
         <b>{name ? name : ".."}</b>
         <p> {rama_name}</p>
         <p>{year}</p>
-        <div style={{ display: "flex" }}>
+        <div className="songs_btn-container" style={{ display: "flex" }}>
           <button onClick={handleShowLyrics}>
             <FontAwesomeIcon icon={faLeaf} />
           </button>
@@ -79,6 +86,7 @@ function SongsInHome({ name, rama_name, year, lyrics, pos }) {
           <SongPlayer
             isPlaying={isPlaying}
             songUrl={"https://www.youtube.com/watch?v=j0Lww0JQU-Y"}
+            setIsPlaying={setIsPlaying}
           />
         </div>
         <div>{letra}</div>
