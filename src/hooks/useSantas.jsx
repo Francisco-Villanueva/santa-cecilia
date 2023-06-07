@@ -4,7 +4,7 @@ import { santacecilia } from "../mocks/santacecilia.json";
 import { searchSanta } from "../services/santas";
 
 export function useSantas({ search, sort }) {
-  console.log("sort ", sort);
+  // console.log("sort ", sort);
   const [santas, setSantas] = useState([]);
 
   const prevSearch = useRef(search);
@@ -21,7 +21,7 @@ export function useSantas({ search, sort }) {
     setSantas(santacecilia);
   }, [search]);
 
-  console.log({ santas });
+  // console.log({ santas });
   const sortedSantas = useMemo(() => {
     if (sort === "A-Z") return [...santas].sort((a, b) => a.year - b.year);
     else {

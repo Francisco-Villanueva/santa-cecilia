@@ -43,6 +43,6 @@ export const searchSanta = ({ search }) => {
 
   const filteredSantas = santacecilia.filter((e) => condition(e.place, search));
 
-  console.log("EJECTUA SEARCH SANTA: ", filteredSantas);
+  // console.log("EJECTUA SEARCH SANTA: ", filteredSantas);
   return filteredSantas;
 };

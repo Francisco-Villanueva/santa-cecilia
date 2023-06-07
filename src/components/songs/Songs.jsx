@@ -93,7 +93,7 @@ function SongsInHome({ name, rama_name, year, lyrics, pos }) {
         <div className="songPlayer-container">
           <SongPlayer
             isPlaying={isPlaying}
-            songUrl={"https://www.youtube.com/watch?v=j0Lww0JQU-Y"}
+            // songUrl={"https://www.youtube.com/watch?v=j0Lww0JQU-Y"}
             setIsPlaying={setIsPlaying}
           />
         </div>
