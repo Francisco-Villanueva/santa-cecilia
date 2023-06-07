@@ -32,7 +32,6 @@ function SongsInHome({ name, rama_name, year, lyrics, pos, sound }) {
   const [showLyrics, setShowLyirics] = useState(false);
   const [expnadLyrics, setExpandLyrics] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
-
   const handleExpnadLyrics = () => {
     setExpandLyrics(!expnadLyrics);
   };
@@ -71,6 +70,7 @@ function SongsInHome({ name, rama_name, year, lyrics, pos, sound }) {
           <button
             onClick={handlePlayPause}
             className={isPlaying ? "song_play" : "song_pause"}
+            disabled={!sound}
           >
             {isPlaying ? (
               <FontAwesomeIcon icon={faPause} />
