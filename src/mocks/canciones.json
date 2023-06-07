@@ -1,6 +1,17 @@
 {
   "canciones": [
     {
+      "id_cancion": 0,
+      "title": "CENIZAS DE MEMORIA",
+      "year": "2020",
+      "idAuthor": "id_caminantes",
+      "rama_name": "Franco Bostal",
+      "idSantaCecilia": "cs_nn",
+      "lyrics": "C\tFmaj7\nLas paredes hablan \nC\tFmaj7\nComo los libros \nC\tFmaj7\nAm\tG\ncomo las fotografías \nAm\tG\ncomo las guitarras\nF\tG\tC\nnos cuentan historias\n\n\nLas paredes hablan \nunas más que otras\ndepende de quién escuche\nde quien las observe \nde quien las interprete\n\nFmaj7\t\tC\nLas miradas iluminan \nFmaj7  \tC\ny se iluminan con el fuego \nFmaj7\t\tC\nde ahí radica su energía \nEm\t\tAm\nEl círculo protege \nFmaj7\t\tC\nla flor roja que da vida\n\nG\tAm\nEl calor se aísla también el sonido (BIS)\nF\tG\tEm\tAm Fmaj7 G \nC\nlos cuerpos\n\nLos pasos se acercan \nsin hacer ruido\nmiran la luz de la noche de estrellas y chispas \nde luna y espejos\n\nLas paredes hablan \nsin preguntarles\ncon los ecos de canciones \necos de miradas\necos de latidos\n\nEl de la pared y el fuego \nun amor a primera vista\nque deja vivir a las sombras \nSus miradas protegen\nla flor viva, la de historias \n\nLa memoria es la que se vuelve ceniza (BIS)\ny se diluye por dentro de \nlos cuerpos\ny se diluye por dentro del\nC\t\tF\t  C\nviejo y querido terreno \n\t\tF\t     C\nsigo encontrando un lugar\nLlama Reflexiva - 2020\nFranco Bostal - Cancion compuesta en el 2020",
+      "place": "recovecos",
+      "sound": "https://www.youtube.com/watch?v=j0Lww0JQU-Y"
+    },
+    {
       "id_cancion": 1,
       "title": "CANCION DE LOS VEINTE AÑOS",
       "year": "1882",
@@ -27,7 +38,7 @@
       "idAuthor": "id_solar",
       "rama_name": "Solar",
       "idSantaCecilia": "sc_1882",
-      "lyrics": "",
+      "lyrics": "``",
       "place": "recovecos"
     },
     {

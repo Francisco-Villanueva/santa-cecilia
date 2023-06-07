@@ -7,7 +7,7 @@ const SongPlayer = ({ songUrl, isPlaying, setIsPlaying }) => {
       <ReactPlayer
         url={songUrl}
         playing={isPlaying}
-        controls={true}
+        controls={false}
         width="300px"
         height="350px"
         onEnded={() => setIsPlaying(!isPlaying)}

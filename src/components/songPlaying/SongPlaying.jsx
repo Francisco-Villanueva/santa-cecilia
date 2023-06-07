@@ -1,14 +1,10 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./SongPlaying.css";
 import React, { useState } from "react";
-import {
-  faCirclePlay,
-  faExpand,
-  faExpandArrowsAlt,
-} from "@fortawesome/free-solid-svg-icons";
+import { faCirclePlay, faExpand } from "@fortawesome/free-solid-svg-icons";
 
 function SongPlayingExpanded({ song, author, handleExpandSong }) {
-  console.log({ author });
+  // console.log({ author });
   return (
     <div className="songPlaying_expanded scale-in-bl">
       <button className="expand_songPlaying" onClick={handleExpandSong}>

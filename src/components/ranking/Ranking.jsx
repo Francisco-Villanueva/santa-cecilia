@@ -20,7 +20,7 @@ export default function Ranking({ santas, closeRanking }) {
       <h1>Ranking histórico</h1>
       <div className="rank-container">
         {sortedRamas_bySantas.slice(0, 8).map((m, i) => (
-          <div className="rank" key={m.idRama}>
+          <div className="rank scale-in-hor-left" key={m.idRama}>
             <b>{i + 1}°</b>
             <img src={m.img} />
             <div>

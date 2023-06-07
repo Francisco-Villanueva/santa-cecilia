@@ -3,6 +3,9 @@ import { useRama } from "../../hooks/useRama";
 import "./Songs.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
+  faClose,
+  faClosedCaptioning,
+  faExpandAlt,
   faLeaf,
   faPause,
   faPlay,
@@ -11,24 +14,7 @@ import {
 import SongPlayer from "../SongPlayer/SongPlayer";
 import SongPlaying from "../songPlaying/SongPlaying";
 import { ramas } from "../../mocks/ramas.json";
-const letra =
-  "Las tazas sobre el mantel \n\n" +
-  "\nLa lluvia derramada \n\n" +
-  "\n Un poco de miel \n\n" +
-  "Un poco de miel \n\n" +
-  "No basta \n\n" +
-  "El eclipse no fue parcial \n\n" +
-  "Y cegó nuestras miradas \n\n" +
-  "Te vi que llorabas \n\n" +
-  "Te vi que llorabas \n\n" +
-  "Por él \n\n" +
-  "Té para tres \n\n" +
-  "Un sorbo de distracción \n\n" +
-  "Buscando descifrarnos \n\n" +
-  "No hay nada mejor \n\n" +
-  "No hay nada mejor \n\n" +
-  "Que casa \n\n" +
-  "Té para tres \n\n";
+
 function SongInSantaList({ name, rama_name }) {
   const [showLyrics, setShowLyrics] = useState(false);
   const showLyricsModal = () => {
@@ -42,9 +28,14 @@ function SongInSantaList({ name, rama_name }) {
   );
 }
 
-function SongsInHome({ name, rama_name, year, lyrics, pos }) {
+function SongsInHome({ name, rama_name, year, lyrics, pos, sound }) {
   const [showLyrics, setShowLyirics] = useState(false);
+  const [expnadLyrics, setExpandLyrics] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
+
+  const handleExpnadLyrics = () => {
+    setExpandLyrics(!expnadLyrics);
+  };
   const handlePlayPause = () => {
     setIsPlaying(!isPlaying);
   };
@@ -89,16 +80,33 @@ function SongsInHome({ name, rama_name, year, lyrics, pos }) {
           </button>
         </div>
       </div>
-      <span className={showLyrics ? "lyrics" : "lyrics-hide"}>
-        <div className="songPlayer-container">
-          <SongPlayer
-            isPlaying={isPlaying}
-            // songUrl={"https://www.youtube.com/watch?v=j0Lww0JQU-Y"}
-            setIsPlaying={setIsPlaying}
-          />
-        </div>
-        <div>{letra}</div>
-      </span>
+
+      <div className={showLyrics ? "lyrics" : "lyrics-hide"}>
+        {sound && (
+          <div style={{ display: "none" }}>
+            <SongPlayer
+              isPlaying={isPlaying}
+              setIsPlaying={setIsPlaying}
+              songUrl={sound}
+            />
+          </div>
+        )}
+        <button onClick={handleExpnadLyrics} className="btn-toExpandLyrics">
+          <FontAwesomeIcon icon={faExpandAlt} />
+        </button>
+        {expnadLyrics && (
+          <div className="expanded_lyrics">
+            <button onClick={handleExpnadLyrics} className="btn-toCloseLyrics">
+              <FontAwesomeIcon icon={faClose} />
+            </button>
+            <h1>{name}</h1>
+            <div className="expanded_lyrics__lyrics-cont">
+              <pre> {lyrics} </pre>
+            </div>
+          </div>
+        )}
+        <pre> {lyrics} </pre>
+      </div>
     </div>
   );
 }
@@ -109,6 +117,7 @@ export default function Songs({
   lyrics,
   cancionero_home,
   pos,
+  sound,
 }) {
   return cancionero_home ? (
     <SongsInHome
@@ -117,6 +126,7 @@ export default function Songs({
       year={year}
       pos={pos}
       lyrics={lyrics}
+      sound={sound}
     />
   ) : (
     <SongInSantaList name={name} rama_name={rama_name} />
