@@ -21,6 +21,7 @@ export default function Carousele() {
         width={"40vw"}
         showThumbs={false}
         showStatus={false}
+        className="carousel-container"
       >
         <div>
           <img src={img1} alt="Imagen 1" />

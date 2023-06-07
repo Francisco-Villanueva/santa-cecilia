@@ -28,6 +28,7 @@ export default function Home() {
 
   return (
     <div>
+      
       <h1>Santa cecilia</h1>
       <Carousele />
       <button className="ranking-btn_home" onClick={handleShowRanking}>
@@ -50,6 +51,7 @@ export default function Home() {
           search={search}
           setSearch={setSearch}
         />
+        <br />
         <HomeSection
           title="Canciones"
           type="canciones"
