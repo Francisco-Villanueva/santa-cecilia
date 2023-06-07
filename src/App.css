@@ -17,6 +17,7 @@
   z-index: 2;
   display: grid;
   place-items: center;
+  /* padding: 1em; */
 }
 .ranking-btn_home {
   position: absolute;

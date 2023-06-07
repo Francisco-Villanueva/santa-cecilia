@@ -51,7 +51,6 @@ export default function Home() {
           search={search}
           setSearch={setSearch}
         />
-        <br />
         <HomeSection
           title="Canciones"
           type="canciones"
