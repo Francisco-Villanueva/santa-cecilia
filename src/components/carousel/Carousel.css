@@ -14,19 +14,7 @@
   background-repeat: repeat;
   background-size: 5%;
 }
-@media (max-width: 1250px) {
-  /* … */
-  .carousel-main-container{
-    flex-direction: column;
-    gap: 1em;
-  }
-  .carousel-main-container h1{
-    font-size: 1.5em;
-
-  }
-
-  .carousel-main-container article{
-    text-align: justify;
-    font-size: .8em;
-  }
+.carousel-container {
+  /* width: 50; */
+  width: 8500px;
 }
