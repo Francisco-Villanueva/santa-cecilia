@@ -10,7 +10,7 @@ const SongPlayer = ({ songUrl, isPlaying, setIsPlaying }) => {
         controls={false}
         width="300px"
         height="350px"
-        onEnded={() => setIsPlaying(!isPlaying)}
+        onEnded={() => setIsPlaying()}
       />
     </div>
   );

@@ -7,7 +7,7 @@
   justify-content: space-around;
   align-items: self-start;
   gap: 1px;
-  padding: 1em;
+  padding: 1em 2em;
   border-radius: 1em;
   background: #00000071;
   transition: all 0.3s;
@@ -46,7 +46,7 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  gap: 5px;
+  gap: 1em;
 }
 .expand_songPlaying {
   padding: 0;

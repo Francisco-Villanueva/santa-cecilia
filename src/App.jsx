@@ -1,11 +1,13 @@
 import "./App.css";
+import { Footer } from "./components/Footer/Footer";
 import Home from "./components/Home/Home";
-
+import { db } from "./firebase";
 function App() {
   return (
     <>
       <div className="App">
         <Home />
+        <Footer />
       </div>
     </>
   );

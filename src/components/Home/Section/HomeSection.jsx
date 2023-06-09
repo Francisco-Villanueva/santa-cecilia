@@ -2,6 +2,7 @@ import React, { useCallback } from "react";
 import { SantaCecilia } from "../../santaCecilias/SantaCecilia";
 import Songs from "../../songs/Songs";
 import debounce from "just-debounce-it";
+import { useSongPlaying } from "../../../hooks/useSongPlaying";
 
 function Searcher({ search, setSearch, type, getSantas, getSongs }) {
   const handleSubmit = (e, type) => {
@@ -48,8 +49,10 @@ export default function HomeSection({
     getSongs,
   });
 
+  const { song, reproductionStatus } = useSongPlaying();
+  // console.log({ song, reproductionStatus });
   return (
-    <section className="home_body_section">
+    <div className="home_body_section">
       <div className=" home_body_section__head">
         <h1>{title}</h1>
         <form onSubmit={() => handleSubmit(type)}>
@@ -107,6 +110,6 @@ export default function HomeSection({
               />
             ))}
       </div>
-    </section>
+    </div>
   );
 }

@@ -5,14 +5,18 @@ import { useRama } from "../../hooks/useRama";
 import { useSantas } from "../../hooks/useSantas";
 import { useSearch } from "../../hooks/useSearch";
 import { useSongs } from "../../hooks/useSongs";
+import { useSongPlaying } from "../../hooks/useSongPlaying";
 import Carousele from "../carousel/Carousel";
 import Ranking from "../ranking/Ranking";
 import HomeSection from "./Section/HomeSection";
 import { santacecilia } from "../../mocks/santacecilia.json";
+
 import "./Home.css";
+import SongPlayer from "../SongPlayer/SongPlayer";
 
 export default function Home() {
   const { getRamaData } = useRama();
+  const { song, reproductionStatus, setPlayPause } = useSongPlaying();
   const { search, setSearch } = useSearch();
   const [sort, setSort] = useState("Z-A");
   const { santas, getSantas, getAllSantas } = useSantas({ search, sort });
@@ -28,7 +32,15 @@ export default function Home() {
 
   return (
     <div>
-      
+      {song && (
+        <div style={{ display: "none" }}>
+          <SongPlayer
+            isPlaying={reproductionStatus}
+            setIsPlaying={setPlayPause}
+            songUrl={song}
+          />
+        </div>
+      )}
       <h1>Santa cecilia</h1>
       <Carousele />
       <button className="ranking-btn_home" onClick={handleShowRanking}>

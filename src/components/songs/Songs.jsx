@@ -14,6 +14,7 @@ import {
 import SongPlayer from "../SongPlayer/SongPlayer";
 import SongPlaying from "../songPlaying/SongPlaying";
 import { ramas } from "../../mocks/ramas.json";
+import { useSongPlaying } from "../../hooks/useSongPlaying";
 
 function SongInSantaList({ name, rama_name }) {
   const [showLyrics, setShowLyrics] = useState(false);
@@ -32,11 +33,20 @@ function SongsInHome({ name, rama_name, year, lyrics, pos, sound }) {
   const [showLyrics, setShowLyirics] = useState(false);
   const [expnadLyrics, setExpandLyrics] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
+  const { song, getSong, setPlayPause, reproductionStatus } = useSongPlaying();
   const handleExpnadLyrics = () => {
     setExpandLyrics(!expnadLyrics);
   };
   const handlePlayPause = () => {
-    setIsPlaying(!isPlaying);
+    if (song === "") {
+      getSong(sound);
+      setPlayPause("");
+    } else {
+      getSong(sound);
+      setPlayPause(song);
+    }
+    // console.log("ava");
+    // setPlayPause(song);
   };
   const handleShowLyrics = () => {
     setShowLyirics(!showLyrics);
@@ -48,10 +58,12 @@ function SongsInHome({ name, rama_name, year, lyrics, pos, sound }) {
         <SongPlaying
           song={name}
           isPlaying={isPlaying}
+          setIsPlaying={setIsPlaying}
           rama_name={rama_name}
           ramas={ramas}
         />
       )}
+
       <div
         className={
           showLyrics
@@ -80,17 +92,7 @@ function SongsInHome({ name, rama_name, year, lyrics, pos, sound }) {
           </button>
         </div>
       </div>
-
       <div className={showLyrics ? "lyrics" : "lyrics-hide"}>
-        {sound && (
-          <div style={{ display: "none" }}>
-            <SongPlayer
-              isPlaying={isPlaying}
-              setIsPlaying={setIsPlaying}
-              songUrl={sound}
-            />
-          </div>
-        )}
         <button onClick={handleExpnadLyrics} className="btn-toExpandLyrics">
           <FontAwesomeIcon icon={faExpandAlt} />
         </button>
