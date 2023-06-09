@@ -53,18 +53,20 @@ export default function HomeSection({
   // console.log({ song, reproductionStatus });
   return (
     <div className="home_body_section">
-      <div className=" home_body_section__head">
-        <h1>{title}</h1>
-        <form onSubmit={() => handleSubmit(type)}>
-          <input
-            type="text"
-            placeholder="Año, Campo, Rama ..."
-            autoComplete="off"
-            name="query-santas"
-            onChange={(e) => handleSearch(e, type)}
-          />
-          <button type="submit">🔍</button>
-        </form>
+      <div className="home_body_section__head">
+        <div className="home_body_section__head-child_1">
+          <h1>{title}</h1>
+          <form onSubmit={() => handleSubmit(type)}>
+            <input
+              type="text"
+              placeholder="Año, Campo, Rama ..."
+              autoComplete="off"
+              name="query-santas"
+              onChange={(e) => handleSearch(e, type)}
+            />
+            <button type="submit">🔍</button>
+          </form>
+        </div>
         {/*
    |----------------->  FILTROS :
    |           <div className="filterSantas-container">
@@ -81,10 +83,12 @@ export default function HomeSection({
    |
    |----------------->  FILTROS :
    */}
+        <div className="home_body_section__head-child_1">
+          <span style={{ fontStyle: "italic", margin: 0 }}>
+            Resultados : {array.length}
+          </span>
+        </div>
       </div>
-      <span style={{ fontStyle: "italic", margin: 0 }}>
-        Resultados : {array.length}
-      </span>
       <div className="home_body_section__list">
         {type == "santas"
           ? array.map((m) => (

@@ -38,7 +38,9 @@
   margin: 0;
   text-transform: capitalize;
 }
-
+.card_songs button {
+  padding: 15px;
+}
 .song-list-hidden {
   display: none;
   margin-top: 10px;

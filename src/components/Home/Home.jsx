@@ -31,7 +31,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div>
+    <div className="home_main-container">
       {song && (
         <div style={{ display: "none" }}>
           <SongPlayer
@@ -41,11 +41,13 @@ export default function Home() {
           />
         </div>
       )}
-      <h1>Santa cecilia</h1>
+      <div className="home_header">
+        <h1>Santa cecilia</h1>
+        <button className="ranking-btn_home" onClick={handleShowRanking}>
+          <FontAwesomeIcon icon={faRankingStar} />
+        </button>
+      </div>
       <Carousele />
-      <button className="ranking-btn_home" onClick={handleShowRanking}>
-        <FontAwesomeIcon icon={faRankingStar} />
-      </button>
       {rankingShow && (
         <section className="section_ranking-container">
           {/* <button onClick={handleShowRanking}></button> */}

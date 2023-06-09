@@ -4,7 +4,22 @@
   gap: 20px;
   font-size: 0.9em;
   grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+  align-items: center;
 }
+.home_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* width: 80%; */
+}
+.home_header h1 {
+  margin: 0;
+}
+
+.ranking-btn_home {
+  margin: 0;
+}
+
 .home_body_section {
   max-height: 600px;
   border: 1px solid #ffffff1c;
@@ -13,7 +28,14 @@
 }
 .home_body_section__head {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
+}
+.home_body_section__head-child_1 {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
   align-items: center;
 }
 .home_body_section__list {
@@ -63,11 +85,13 @@
 
 @media (max-width: 1250px) {
   .App {
-    width: 80vw;
+    width: 50vw;
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 0 20px;
   }
+
   .home_body {
     display: flex;
     flex-direction: column;
@@ -76,6 +100,12 @@
     /* max-width: 100%; */
     /* outline: 1px solid red; */
     /* font-size: .6em; */
+  }
+  .home_main-container {
+    width: 90vw;
+  }
+  .home_header {
+    font-size: 10px;
   }
   img {
     width: 30px;
@@ -87,8 +117,20 @@
     max-height: 600px;
     /* border: 1px solid #ffffff1c; */
     /* padding: 0; */
-    width: 100%;
+    width: 90%;
     padding: 0;
+  }
+  .home_body_section__head h1 {
+    font-size: 1em;
+  }
+  .home_body_section__head form {
+    font-size: 0.5em;
+  }
+  .home_body_section__head-child_1 span {
+    font-size: 6px;
+  }
+  .home_body_section h1 {
+    margin: 0;
   }
   .home_body_section__list {
     display: flex;
@@ -96,13 +138,13 @@
     gap: 5px;
     overflow-y: auto;
     max-height: 400px;
-    font-size: 1em;
+    font-size: 0.7em;
     padding: 0;
   }
   .carousel-main-container {
     padding: 0;
     flex-direction: column;
-    gap: 1em;
+    gap: 0em;
   }
   .carousel-container {
     /* width: 50px; */
@@ -114,34 +156,45 @@
   }
   .article-container {
     text-align: justify;
-    font-size: 0.8em;
-    padding: 0.5em 1em;
+    font-size: 0.5em;
+    padding: 1em;
+    margin: 0;
+  }
+  .article-container h1 {
+    margin: 5px 0;
   }
   .card-container {
     /* font-size: 8px; */
     gap: 1em;
+    grid-template-columns: 2fr 3fr 0.2fr;
   }
-  .card_date {
+  .card-container .card_date {
     display: flex;
     text-align: start;
-    /* outline: 1px solid #fff; */
     justify-content: flex-start;
-    align-items: self-start;
     gap: 0;
   }
+  .card_date {
+    font-size: 0.7em;
+  }
   .card_winner {
-    font-size: 12px;
+    font-size: 10px;
   }
   .card_winner img {
     width: 20px;
+  }
+  .card_songs button {
+    padding: 5px;
+    font-size: 0.3em;
   }
   .section_ranking-container {
     width: 100%;
     height: 100%;
   }
-  .ranking-btn_home {
-    top: 30px;
-    right: 60px;
+  .home_header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
   .ranking-container {
     width: 90%;
