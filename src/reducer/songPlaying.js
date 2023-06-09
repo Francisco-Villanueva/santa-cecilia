@@ -8,16 +8,31 @@ export const reducer = (state, action) => {
   switch (actionType) {
     case "GET_SONG":
       return {
+        ...state,
         song: actionPayload,
       };
     case "SET_PLAY_PAUSE":
       const prevSong = actionPayload;
       const newSong = state.song;
-      console.log("are equal songs? ", prevSong === newSong);
 
+      console.log("---------");
+      console.log({ prevSong });
+      console.log(newSong.id_cancion);
+      console.log("---------");
+
+      let res = state.reproductionStatus;
+      console.log({ res });
+      if (prevSong.id_cancion === newSong.id_cancion) {
+        res = !res;
+      } else if (prevSong === "") {
+        res = true;
+      } else {
+        res = true;
+      }
       return {
         ...state,
-        reproductionStatus: state.reproductionStatus ? false : true,
+
+        reproductionStatus: res,
       };
   }
   return state;

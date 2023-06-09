@@ -7,7 +7,7 @@ export const SongPlayerContext = createContext();
 function useSongPlayingReducer() {
   const [state, dispatch] = useReducer(reducer, intialState);
 
-  console.log({ state });
+  // console.log({ state });
   const getSong = (song) => {
     return dispatch({
       type: "GET_SONG",

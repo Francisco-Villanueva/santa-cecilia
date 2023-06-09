@@ -29,7 +29,7 @@ function SongInSantaList({ name, rama_name }) {
   );
 }
 
-function SongsInHome({ name, rama_name, year, lyrics, pos, sound }) {
+function SongsInHome({ name, rama_name, year, lyrics, pos, sound, SongData }) {
   const [showLyrics, setShowLyirics] = useState(false);
   const [expnadLyrics, setExpandLyrics] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -39,10 +39,10 @@ function SongsInHome({ name, rama_name, year, lyrics, pos, sound }) {
   };
   const handlePlayPause = () => {
     if (song === "") {
-      getSong(sound);
+      getSong(SongData);
       setPlayPause("");
     } else {
-      getSong(sound);
+      getSong(SongData);
       setPlayPause(song);
     }
     // console.log("ava");
@@ -54,14 +54,16 @@ function SongsInHome({ name, rama_name, year, lyrics, pos, sound }) {
 
   return (
     <div className="songs-container-home-main">
-      {isPlaying && (
+      {song.title === name ? (
         <SongPlaying
-          song={name}
+          songName={name}
           isPlaying={isPlaying}
           setIsPlaying={setIsPlaying}
           rama_name={rama_name}
           ramas={ramas}
         />
+      ) : (
+        ""
       )}
 
       <div
@@ -81,10 +83,14 @@ function SongsInHome({ name, rama_name, year, lyrics, pos, sound }) {
           </button>
           <button
             onClick={handlePlayPause}
-            className={isPlaying ? "song_play" : "song_pause"}
+            className={
+              song.title === name && reproductionStatus
+                ? "song_play"
+                : "song_pause"
+            }
             disabled={!sound}
           >
-            {isPlaying ? (
+            {song.title === name && reproductionStatus ? (
               <FontAwesomeIcon icon={faPause} />
             ) : (
               <FontAwesomeIcon icon={faPlay} />
@@ -120,6 +126,7 @@ export default function Songs({
   cancionero_home,
   pos,
   sound,
+  fullSongData,
 }) {
   return cancionero_home ? (
     <SongsInHome
@@ -129,6 +136,7 @@ export default function Songs({
       pos={pos}
       lyrics={lyrics}
       sound={sound}
+      SongData={fullSongData}
     />
   ) : (
     <SongInSantaList name={name} rama_name={rama_name} />

@@ -1,7 +1,11 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./SongPlaying.css";
 import React, { useState } from "react";
-import { faCirclePlay, faExpand } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCirclePlay,
+  faExpand,
+  faPauseCircle,
+} from "@fortawesome/free-solid-svg-icons";
 import { useSongPlaying } from "../../hooks/useSongPlaying";
 
 function SongPlayingExpanded({ song, author, handleExpandSong }) {
@@ -18,7 +22,7 @@ function SongPlayingExpanded({ song, author, handleExpandSong }) {
   );
 }
 export default function SongPlaying({
-  song,
+  songName,
   isPlaying,
   ramas,
   rama_name,
@@ -28,32 +32,30 @@ export default function SongPlaying({
   const handleExpandSong = () => {
     // setExpand(!expand);
   };
-  const { setPlayPause } = useSongPlaying();
+  const { song, setPlayPause, reproductionStatus } = useSongPlaying();
   const author = ramas.filter((e) => e.rama_name === rama_name);
 
   return expand ? (
     <SongPlayingExpanded
-      song={song}
+      song={songName}
       author={author}
       handleExpandSong={handleExpandSong}
     />
   ) : (
-    <div
-      className={
-        isPlaying
-          ? "songPlaying_container entrance"
-          : "songPlaying_container exit"
-      }
-    >
+    <div className="songPlaying_container entrance">
       <button className="expand_songPlaying" onClick={handleExpandSong}>
         <FontAwesomeIcon icon={faExpand} />
       </button>
       <span>reproduciendo..</span>
       <div>
-        <button onClick={() => setPlayPause()}>
-          <FontAwesomeIcon icon={faCirclePlay} />
+        <button onClick={() => setPlayPause(song)}>
+          {!reproductionStatus ? (
+            <FontAwesomeIcon icon={faCirclePlay} style={{ color: "white" }} />
+          ) : (
+            <FontAwesomeIcon icon={faPauseCircle} style={{ color: "green" }} />
+          )}
         </button>
-        <b>{song} </b>
+        <b>{songName} </b>
       </div>
     </div>
   );

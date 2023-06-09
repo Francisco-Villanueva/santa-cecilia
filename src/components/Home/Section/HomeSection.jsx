@@ -111,6 +111,7 @@ export default function HomeSection({
                 rama_name={m.rama_name}
                 lyrics={m.lyrics}
                 sound={m.sound}
+                fullSongData={m}
               />
             ))}
       </div>

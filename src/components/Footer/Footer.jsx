@@ -5,7 +5,7 @@ export function Footer() {
   const { song, reproductionStatus } = useSongPlaying();
   return (
     <footer className="footer">
-      {JSON.stringify(song, null, 2)}
+      {JSON.stringify(song.sound, null, 2)}
       {JSON.stringify(reproductionStatus, null, 2)}
       {/* <h
         Prueba técnica de React ⚛️ － <span>@midudev</span>

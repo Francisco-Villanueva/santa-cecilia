@@ -37,7 +37,7 @@ export default function Home() {
           <SongPlayer
             isPlaying={reproductionStatus}
             setIsPlaying={setPlayPause}
-            songUrl={song}
+            songUrl={song.sound}
           />
         </div>
       )}
