@@ -23,11 +23,14 @@ module.exports = (sequelize) => {
     },
     idRama: {
       type: DataTypes.UUID,
+      allowNull: true,
     },
     idSanta: {
+      type: DataTypes.UUID,
+      allowNull: true,
+    },
+    idAuthor: {
       type: DataTypes.UUID,
     },
   });
 };
-
-

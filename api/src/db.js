@@ -32,13 +32,14 @@ let capsEntries = entries.map((entry) => [
   entry[1],
 ]);
 sequelize.models = Object.fromEntries(capsEntries);
-const { Canciones, Ramas, SantaCecilias } = sequelize.models;
+const { Canciones, Ramas, SantaCecilias, Author } = sequelize.models;
 
 Ramas.hasMany(Canciones, { foreignKey: "idRama", as: "canciones" });
 Canciones.belongsTo(Ramas, { foreignKey: "idRama", as: "rama" });
+Author.hasMany(Canciones, { foreignKey: "idAuthor", as: "canciones" });
+Canciones.belongsTo(Author, { foreignKey: "idAuthor", as: "author" });
 SantaCecilias.hasMany(Canciones, { foreignKey: "idSanta", as: "canciones" });
 Canciones.belongsTo(SantaCecilias, { foreignKey: "idSanta", as: "santa" });
-
 
 module.exports = {
   ...sequelize.models,
