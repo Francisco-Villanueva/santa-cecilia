@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useState } from "react";
 import { SantaCecilia } from "../../santaCecilias/SantaCecilia";
 import Songs from "../../songs/Songs";
 import debounce from "just-debounce-it";
@@ -48,9 +48,26 @@ export default function HomeSection({
     getSantas,
     getSongs,
   });
+  const [santasLong, setSantasLong] = useState({
+    long: 5,
+    open: false,
+  });
+  const [songsLong, setSongsLong] = useState({
+    long: 7,
+    open: false,
+  });
+  const handleShowMoreList = (tipo, arr) => {
+    if (tipo === "santas") {
+      !santasLong.open
+        ? setSantasLong({ long: arr.length, open: true })
+        : setSantasLong({ long: 5, open: false });
+    } else {
+      !songsLong.open
+        ? setSongsLong({ long: arr.length, open: true })
+        : setSongsLong({ long: 7, open: false });
+    }
+  };
 
-  const { song, reproductionStatus } = useSongPlaying();
-  // console.log({ song, reproductionStatus });
   return (
     <div className="home_body_section">
       <div className="home_body_section__head">
@@ -90,31 +107,47 @@ export default function HomeSection({
         </div>
       </div>
       <div className="home_body_section__list">
-        {type == "santas"
-          ? array.map((m) => (
-              <SantaCecilia
-                key={m.id_sc}
-                id_santa={m.id_sc}
-                year={m.year}
-                place={m.place}
-                winner={m.winner}
-                songs={m.canciones}
-                getRamaData={getRamaData}
-              />
-            ))
-          : array.map((m) => (
-              <Songs
-                cancionero_home={true}
-                key={m.id_cancion}
-                name={m.title}
-                year={m.year}
-                rama_name={m.rama_name}
-                lyrics={m.lyrics}
-                sound={m.sound}
-                fullSongData={m}
-              />
-            ))}
+        {type === "santas"
+          ? array
+              .slice(0, santasLong.long)
+              .map((m) => (
+                <SantaCecilia
+                  key={m.id_sc}
+                  id_santa={m.id_sc}
+                  year={m.year}
+                  place={m.place}
+                  winner={m.winner}
+                  songs={m.canciones}
+                  getRamaData={getRamaData}
+                />
+              ))
+          : array
+              .slice(0, songsLong.long)
+              .map((m) => (
+                <Songs
+                  cancionero_home={true}
+                  key={m.id_cancion}
+                  name={m.title}
+                  year={m.year}
+                  rama_name={m.rama_name}
+                  lyrics={m.lyrics}
+                  sound={m.sound}
+                  fullSongData={m}
+                />
+              ))}
       </div>
+      <button
+        className="btn_showMore"
+        onClick={() => handleShowMoreList(type, array)}
+      >
+        {type === "santas"
+          ? santasLong.open
+            ? "mostrar menos.."
+            : "mostar mas.."
+          : songsLong.open
+          ? "mostrar menos.."
+          : "mostar mas.."}
+      </button>
     </div>
   );
 }
