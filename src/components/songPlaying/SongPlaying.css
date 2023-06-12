@@ -40,7 +40,7 @@
   animation: scale-in-bl 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 .songPlaying_container:hover {
-  background: #000000dc;
+  background: #000;
 }
 .songPlaying_container div {
   display: flex;

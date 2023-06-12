@@ -22,9 +22,8 @@
 
 .home_body_section {
   max-height: 600px;
-  border: 1px solid #ffffff1c;
+  /* border: 1px solid #ffffff1c; */
   padding: 0.2em 1em;
-  /* width: %; */
 }
 .home_body_section__head {
   display: flex;
@@ -103,6 +102,7 @@
   }
   .home_main-container {
     width: 100vw;
+    padding-bottom: 80px;
   }
   .home_header {
     font-size: 10px;
@@ -209,5 +209,35 @@
     width: 25px;
     height: 25px;
     font-size: 18px;
+  }
+  .songPlaying_container {
+    position: fixed;
+    left: 0;
+    bottom: 0px;
+    width: 90%;
+    margin: auto;
+    background: #000;
+    border-radius: 1em;
+  }
+
+  .expanded_lyrics__lyrics-cont {
+    overflow: auto;
+    height: 100%;
+  }
+  .expanded_lyrics pre {
+    margin: 0;
+    padding: 1em;
+    column-count: 1;
+    background-color: #000000bb;
+  }
+  .btn-toCloseLyrics {
+    position: fixed;
+    top: 15px;
+    left: 4px;
+    background-color: #cecece;
+    color: #fff;
+    z-index: 3;
+    padding: 9px;
+    border-radius: 150px;
   }
 }

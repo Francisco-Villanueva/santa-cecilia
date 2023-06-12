@@ -17,12 +17,8 @@ import { ramas } from "../../mocks/ramas.json";
 import { useSongPlaying } from "../../hooks/useSongPlaying";
 
 function SongInSantaList({ name, rama_name }) {
-  const [showLyrics, setShowLyrics] = useState(false);
-  const showLyricsModal = () => {
-    setShowLyrics(!showLyrics);
-  };
   return (
-    <div className={"songs-container"} onClick={showLyricsModal}>
+    <div className={"songs-container"}>
       <b>{name ? name : ".."}</b>
       <p> {rama_name}</p>
     </div>
