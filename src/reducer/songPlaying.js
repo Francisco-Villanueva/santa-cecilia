@@ -15,11 +15,6 @@ export const reducer = (state, action) => {
       const prevSong = actionPayload;
       const newSong = state.song;
 
-      console.log("---------");
-      console.log({ prevSong });
-      console.log(newSong.id_cancion);
-      console.log("---------");
-
       let res = state.reproductionStatus;
       console.log({ res });
       if (prevSong.id_cancion === newSong.id_cancion) {

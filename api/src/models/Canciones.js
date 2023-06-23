@@ -16,7 +16,7 @@ module.exports = (sequelize) => {
       type: DataTypes.INTEGER,
     },
     lyrics: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(10000),
     },
     sound: {
       type: DataTypes.STRING,
