@@ -3,6 +3,7 @@ import { SantaCecilia } from "../../santaCecilias/SantaCecilia";
 import Songs from "../../songs/Songs";
 import debounce from "just-debounce-it";
 import { useSongPlaying } from "../../../hooks/useSongPlaying";
+import Filters from "../Filters/Filters";
 
 function Searcher({ search, setSearch, type, getSantas, getSongs }) {
   const handleSubmit = (e, type) => {
@@ -17,8 +18,8 @@ function Searcher({ search, setSearch, type, getSantas, getSongs }) {
 
   const deboucedSearch = useCallback(
     debounce((search, type) => {
-      if (type === "santas") getSantas({ search });
-      if (type === "canciones") getSongs({ search });
+      if (type === "santas") getSantas({ search  });
+      if (type === "canciones") getSongs({ search  });
     }, 300),
     []
   );
@@ -28,6 +29,7 @@ function Searcher({ search, setSearch, type, getSantas, getSongs }) {
     setSearch(newQuery);
     deboucedSearch(newQuery, type);
   };
+
 
   return { handleSubmit, handleSearch };
 }
@@ -41,7 +43,7 @@ export default function HomeSection({
   search,
   setSearch,
 }) {
-  const { handleSubmit, handleSearch } = Searcher({
+  const { handleSubmit, handleSearch} = Searcher({
     search,
     setSearch,
     type,
@@ -83,27 +85,15 @@ export default function HomeSection({
             />
             <button type="submit">🔍</button>
           </form>
+            
         </div>
-        {/*
-   |----------------->  FILTROS :
-   |           <div className="filterSantas-container">
-   |             <select
-   |               name="filterSantas"
-   |               id=""
-   |               className=""
-   |               onChange={handleSantasSort}
-   |             >
-   |               <option value="Z-A">Z-A</option>
-   |               <option value="A-Z">A-Z</option>
-   |             </select>
-   |           </div>
-   |
-   |----------------->  FILTROS :
-   */}
+   
+      
         <div className="home_body_section__head-child_1">
           <span style={{ fontStyle: "italic", margin: 0 }}>
             Resultados : {array.length}
           </span>
+         
         </div>
       </div>
       <div className="home_body_section__list">

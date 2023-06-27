@@ -1,8 +1,8 @@
-import { useRef, useState, useCallback } from "react";
+import { useRef, useState, useCallback, useMemo } from "react";
 import { searchSongs } from "../services/canciones";
 import { searchSanta } from "../services/santas";
 import { canciones } from "../mocks/canciones.json";
-export function useSongs({ search }) {
+export function useSongs({ search, sort }) {
   const [songs, setSongs] = useState([]);
 
   const prevSearch = useRef(search);
@@ -18,9 +18,17 @@ export function useSongs({ search }) {
     setSongs(canciones);
   }, [search]);
 
-  const sortedSongs = () => {
+  const sortedSongs = useMemo(() => {
     //funcion para ordernar las canciones segun lo que se pida
-  };
 
-  return { songs, getSongs, getAlSongs };
+    if (sort === "A-Z") {
+      return [...songs].sort((a, b) => a.year - b.year);
+    }else {
+      return [...songs].sort((a, b) => b.year - a.year);
+
+    }
+
+  }, [sort, songs]);
+
+  return { songs: sortedSongs, getSongs, getAlSongs };
 }

@@ -20,7 +20,7 @@ export default function Home() {
   const { search, setSearch } = useSearch();
   const [sort, setSort] = useState("Z-A");
   const { santas, getSantas, getAllSantas } = useSantas({ search, sort });
-  const { songs, getSongs, getAlSongs } = useSongs({ search });
+  const { songs, getSongs, getAlSongs } = useSongs({ search, sort });
   const [rankingShow, setRankingShow] = useState(false);
   const handleShowRanking = () => {
     setRankingShow(!rankingShow);
@@ -64,6 +64,8 @@ export default function Home() {
           getSantas={getSantas}
           search={search}
           setSearch={setSearch}
+          sort={sort}
+          setSort={setSort}
         />
         <HomeSection
           title="Canciones"
@@ -73,6 +75,8 @@ export default function Home() {
           getSongs={getSongs}
           search={search}
           setSearch={setSearch}
+          sort={sort}
+          setSort={setSort}
         />
       </div>
     </div>
